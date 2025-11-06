@@ -27,15 +27,14 @@ A *tiny*, embeddable language implemented in ANSI C
 
 ---
 
-* **[Demo Scripts](examples)**
+* **[Examples](examples)**
 * **[C API Overview](doc/capi.md)**
 * **[Language Overview](doc/lang.md)**
 * **[Implementation Overview](doc/impl.md)**
 
 
 ## Contributing
-The library focuses on being lightweight and minimal; pull requests will
-likely not be merged. Bug reports and questions are welcome.
+The library focuses on being lightweight and minimal; Bug reports and questions are welcome.
 
 
 ## License

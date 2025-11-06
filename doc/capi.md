@@ -5,7 +5,7 @@ this is done by using the `fe_open()` function. The function expects a
 block of memory (typically greater than 16kb), the block is used by the
 context to store objects and context state and should remain valid for
 the lifetime of the context. `fe_close()` should be called when you are
-finished with a context, this will assure any `ptr` objects are properly
+finished with a context, this will ensure any `ptr` objects are properly
 garbage collected.
 
 ```c
