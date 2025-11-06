@@ -22,7 +22,7 @@ free(data);
 
 
 ## Running a script
-To run a script it should first be read then evaluated; this should be
+To run a script, it should first be read then evaluated; this should be
 done in a loop if there are several root-level expressions contained in
 the script. `fe_readfp()` is provided as a convenience to read from a
 file pointer; `fe_read()` can be used with a custom `fe_ReadFn` callback
@@ -51,7 +51,7 @@ fclose(fp);
 
 
 ## Calling a function
-A function can be called by creating a list and evaulating it; for
+A function can be called by creating a list and evaluating it; for
 example, we could add two numbers using the `+` function:
 
 ```c
@@ -98,9 +98,9 @@ The `cfunc` could then be called like any other function:
 
 
 ## Creating a ptr
-The `ptr` object type is provided to allow for custom objects. By default
-no type checking is performed and thus pointers must be wrapped by the
-user and tagged to assure type safety if more than one type of pointer
+The `ptr` object type is provided to allow for custom objects. By default,
+no type checking is performed, and thus pointers must be wrapped by the
+user and tagged to ensure type safety if more than one type of pointer
 is used.
 
 A `ptr` object can be created by using the `fe_ptr()` function.
@@ -117,7 +117,7 @@ struct returned by `fe_handlers()`.
 
 ## Error handling
 When an error occurs the `fe_error()` is called; by default, the
-error and stack traceback is printed and the program exited. If you want
+error and stack traceback is printed, and the program exited. If you want
 to recover from an error the `error` handler field in the struct returned
 by `fe_handlers()` can be set and `longjmp()` can be used to exit the
 handler; the context is left in a safe state and can continue to be

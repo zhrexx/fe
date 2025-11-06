@@ -52,7 +52,7 @@ symbol. Symbols are interned.
 ##### Number
 Numbers store a `Number` in the `cdr` part of the `object`. By default
 `Number` is a `float`, but any value can be used so long as it is equal
-or smaller in size than an `object` pointer. If a different type of
+or smaller than an `object` pointer. If a different type of
 value is used, `fe_read()` and `fe_write()` must also be updated to
 handle the new type correctly.
 
@@ -66,7 +66,7 @@ CFuncs store a `CFunc` pointer in the `cdr` part of the `object`.
 Ptrs store a `void` pointer in the `cdr` part of the `object`. The handler
 functions `gc` and `mark` are called whenever a `ptr` is collected or marked by
 the garbage collector — the set `fe_CFunc` is passed the object itself in place
-of an arguments list.
+of an argument list.
 
 
 ## Environments
@@ -79,9 +79,9 @@ object.
 ## Macros
 Macros work similar to functions, but receive their arguments unevaluated and
 return code which is evaluated in the scope of the caller. The first time a
-macro is called the code which called it is replaced by the generated code, such
-that the macro itself is only ran once in each place it is called. For example,
-we could define the following macro to increment a value by one:
+macro is called, the generated code replaces the code which called it, such
+that the macro itself is only run once in each place it is called. For example,
+we could define the following macro to increase a value by one:
 
 ```clojure
 (= incr
@@ -143,7 +143,7 @@ value `EXIT_FAILURE`.
 
 ## Known Issues
 The implementation has some known issues; these exist as a side effect of trying
-to keep the implementation terse, but should not hinder normal usage:
+to keep the implementation terse but should not hinder normal usage:
 
 * The garbage collector recurses on the `CAR` of objects thus deeply nested
   `CAR`s may overflow the C stack — an object's `CDR` is looped on and will not
@@ -152,4 +152,4 @@ to keep the implementation terse, but should not hinder normal usage:
   will not work correctly on systems of other endianness
 * Proper tailcalls are not implemented — `while` can be used for iterating over
   lists
-* Strings are null-terminated and therefor not binary safe
+* Strings are null-terminated and therefore not binary safe

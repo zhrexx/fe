@@ -76,7 +76,7 @@ Evaluates each argument until one results in `nil` — the last argument's value
 is returned if all the arguments are true.
 
 ##### (or ...)
-Evaluates each argument until one results in true, in which case that arguments
+Evaluates each argument until one results in true, in which case that argument
 value is returned — `nil` is returned if no arguments are true.
 
 ##### (do ...)

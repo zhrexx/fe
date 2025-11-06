@@ -27,7 +27,7 @@ A *tiny*, embeddable language implemented in ANSI C
 
 ---
 
-* **[Demo Scripts](scripts)**
+* **[Demo Scripts](examples)**
 * **[C API Overview](doc/capi.md)**
 * **[Language Overview](doc/lang.md)**
 * **[Implementation Overview](doc/impl.md)**
