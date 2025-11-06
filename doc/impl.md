@@ -1,7 +1,5 @@
+# fe Programming Language - Implementation Overview
 
-# Implementation
-
-## Overview
 The implementation aims to fulfill the following goals:
 * Small memory usage within a fixed-sized memory region — no mallocs
 * Practical for small scripts (extension scripts, config files)

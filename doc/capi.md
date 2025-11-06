@@ -1,5 +1,5 @@
+# fe Programming Language - C API
 
-# C API
 To use `fe` in a project a `fe_Context` must first be initialized;
 this is done by using the `fe_open()` function. The function expects a
 block of memory (typically greater than 16kb), the block is used by the
