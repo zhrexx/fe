@@ -28,9 +28,7 @@
 #else
 
 #define DEF_REQUIRED_FN(name) \
-enum { name##_is_required = 1 / (!!(0 && &name)) } // IF ERROR HAPPEND PROVIDE THESE
-
-
+enum { name##_is_required = 1 / (!!(0 && &name)) } // IF ERROR HAPPENED PROVIDE THESE FUNCTIONS
 
 DEF_REQUIRED_FN(fe_strlen);
 DEF_REQUIRED_FN(fe_strcmp);

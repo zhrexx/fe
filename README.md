@@ -17,13 +17,15 @@ A *tiny*, embeddable language implemented in ANSI C
 ```
 
 ## Overview
+* Single-Header library — just include `fe.h`, define FE_IMPLEMENTATION and you ready to go
+* Easy to use C API
+* Small memory usage within a fixed-sized memory region — no mallocs
+* Portable C11 — works on 32 and 64bit
 * Supports numbers, symbols, strings, pairs, lambdas, macros
 * Lexically scoped variables, closures
-* Small memory usage within a fixed-sized memory region — no mallocs
 * Simple mark and sweep garbage collector
-* Easy to use C API
-* Portable ANSI C — works on 32 and 64bit
-* Concise — less than 800 sloc
+* Concise — less than 1000 sloc
+* Usable without libc (FE_NO_STD but needs to have some functions)
 
 ---
 

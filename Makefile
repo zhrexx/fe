@@ -1,5 +1,5 @@
 CFLAGS := -Wall -Wextra -O3 -pedantic
-CSTD := c23
+CSTD := c11
 LDFLAGS := -lm
 
 BUILD_DIR := build
