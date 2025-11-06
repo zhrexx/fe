@@ -49,6 +49,11 @@ enum {
     FE_TFUNC, FE_TMACRO, FE_TPRIM, FE_TCFUNC, FE_TPTR
 };
 
+typedef struct {
+    char *first;
+    char *second;
+} StringPair;
+
 fe_Context *fe_open(void *ptr, int size);
 
 void fe_close(fe_Context *ctx);
@@ -140,6 +145,10 @@ static const char *primnames[] = {
     "let", "=", "if", "fn", "mac", "while", "quote", "and", "or", "do", "cons",
     "car", "cdr", "setcar", "setcdr", "list", "not", "is", "atom", "print", "<",
     "<=", "+", "-", "*", "/"
+};
+
+static StringPair aliases[] = {
+    {"define", "="}
 };
 
 static const char *typenames[] = {
@@ -934,6 +943,10 @@ fe_Context *fe_open(void *ptr, int size) {
         fe_set(ctx, fe_symbol(ctx, primnames[i]), v);
         fe_restoregc(ctx, save);
     }
+
+    for (size_t i = 0; i < sizeof(aliases) / sizeof(aliases[0]); i++)
+        fe_set(ctx, fe_symbol(ctx, aliases[i].first),
+            fe_symbol(ctx, aliases[i].second));
 
     return ctx;
 }
