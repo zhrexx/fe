@@ -148,7 +148,8 @@ static const char *primnames[] = {
 };
 
 static StringPair aliases[] = {
-    {"define", "="}
+    {"define", "="},
+    {"macro", "mac"}
 };
 
 static const char *typenames[] = {
@@ -944,9 +945,12 @@ fe_Context *fe_open(void *ptr, int size) {
         fe_restoregc(ctx, save);
     }
 
-    for (size_t i = 0; i < sizeof(aliases) / sizeof(aliases[0]); i++)
-        fe_set(ctx, fe_symbol(ctx, aliases[i].first),
-            fe_symbol(ctx, aliases[i].second));
+    for (size_t i = 0; i < sizeof(aliases) / sizeof(aliases[0]); i++) {
+        fe_Object *target = fe_symbol(ctx, aliases[i].second);
+        fe_Object *alias = fe_symbol(ctx, aliases[i].first);
+        fe_set(ctx, alias, cdr(getbound(target, &nil)));
+        fe_restoregc(ctx, save);
+    }
 
     return ctx;
 }
