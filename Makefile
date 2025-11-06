@@ -12,8 +12,8 @@ $(BUILD_DIR):
 $(BUILD_DIR)/doc:
 	mkdir -p $(BUILD_DIR)/doc
 
-$(BUILD_DIR)/fe: src/fe.h | $(BUILD_DIR)
-	$(CC) $(CFLAGS) -x c -std=$(CSTD) -o $@ src/fe.h $(LDFLAGS) -DFE_IMPLEMENTATION -DFE_STANDALONE
+$(BUILD_DIR)/fe: src/repl.c src/fe.h | $(BUILD_DIR)
+	$(CC) $(CFLAGS) -std=$(CSTD) -o $@ src/repl.c $(LDFLAGS)
 
 $(BUILD_DIR)/doq: | $(BUILD_DIR)
 	git clone https://github.com/rxi/doq.git $(BUILD_DIR)/doq_src

@@ -23,8 +23,6 @@
 #define EXIT_FAILURE 1
 #define EXIT_SUCCESS 0
 
-#define fe_setjmp(e) setjmp(e)
-#define fe_longjmp(e, v) longjmp(e, v)
 #else
 
 #define DEF_REQUIRED_FN(name) \
@@ -44,9 +42,6 @@ DEF_REQUIRED_FN(fe_fgetc);
 DEF_REQUIRED_FN(fe_fopen);
 
 DEF_REQUIRED_FN(fe_exit);
-
-DEF_REQUIRED_FN(fe_setjmp);
-DEF_REQUIRED_FN(fe_longjmp);
 
 #ifndef EXIT_FAILURE
     #define EXIT_FAILURE 1
