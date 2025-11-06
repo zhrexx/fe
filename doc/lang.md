@@ -1,6 +1,15 @@
 # fe Programming Language - Language Overview
 
-## Forms
+### Aliases
+
+An alias is a shorthand for an existing symbol in fe. 
+It maps one identifier to another; for example, the alias `define` expands to the special-form `=`.
+Aliases only cannot be defined in fe, only in C.
+
+Example:
+> (define x 10)  ; equivalent to (= x 10)
+nil
+
 
 ### Special-forms
 ##### (let sym val)

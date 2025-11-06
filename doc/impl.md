@@ -1,12 +1,15 @@
 # fe Programming Language - Implementation Overview
 
 The implementation aims to fulfill the following goals:
+* Single-Header library — just include `fe.h`, define FE_IMPLEMENTATION and you ready to go
+* Easy to use C API
 * Small memory usage within a fixed-sized memory region — no mallocs
-* Practical for small scripts (extension scripts, config files)
-* Concise source — less than 1000 loc
-* Portable ANSI C (Windows, Linux, DOS — 32 and 64bit)
-* Simple and easy to understand source
-* Simple and easy to use C API
+* Portable C11 — works on 32 and 64bit
+* Supports numbers, symbols, strings, pairs, lambdas, macros
+* Lexically scoped variables, closures
+* Simple mark and sweep garbage collector
+* Concise — less than 1000 sloc
+* Usable without libc (FE_NO_STD but needs to have some functions)
 
 The language offers the following:
 * Numbers, symbols, strings, pairs, lambdas, macros, cfuncs, ptrs
@@ -21,7 +24,6 @@ The language offers the following:
 The implementation uses a fixed-sized region of memory supplied by the user when
 creating the `context`. The implementation stores the `context` at the start of
 this memory region and uses the rest of the region to store `object`s.
-
 
 ## Objects
 All data is stored in fixed-sized `object`s. Each `object` consists of a `car`
